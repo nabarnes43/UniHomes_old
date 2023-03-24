@@ -1,0 +1,53 @@
+{% extends "homepage.html" %}
+
+<!DOCTYPE html>
+<html>
+{% block page_name %}
+<head>
+	<title>Apartments Near Morehouse College</title>
+    <h1>Apartments Near Morehouse College</h1>
+</head>
+{% endblock %}
+{% block content %}
+<body>
+
+	<div id="results"></div>
+	<script>
+		const url = "https://zillow56.p.rapidapi.com/search";
+		const querystring = {
+			"location":"Atlanta, ga, 30314",
+			"status":"forRent",
+			"isApartment":"true",
+			"isCondo":"true",
+			"doz":"any",
+			"onlyWithPhotos":"true"
+		};
+
+		const headers = {
+			"X-RapidAPI-Key": "2e617df064msh2be268d22e037abp1d77ddjsn18a98458acca",
+			"X-RapidAPI-Host": "zillow56.p.rapidapi.com"
+		};
+
+		fetch(url + '?' + new URLSearchParams(querystring), {headers})
+			.then(response => response.json())
+			.then(data => {
+				const results = data.results;
+				const resultsDiv = document.getElementById('results');
+
+				// Loop through each result and display the address, price, and image
+				results.forEach(result => {
+					const address = result.streetAddress;
+					const price = result.price;
+					const imageUrl = result.imgSrc;
+
+					const resultDiv = document.createElement('div');
+					resultDiv.innerHTML = `<p>Address: ${address}</p><p>Price: ${price}</p><img src="${imageUrl}" alt="${address}">`;
+					resultsDiv.appendChild(resultDiv);
+				});
+			})
+			.catch(error => console.error(error));
+	</script>
+</body>
+{% endblock %}
+
+</html>

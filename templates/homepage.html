@@ -4,12 +4,14 @@
     <title>UniHomes</title>
   </head>
   <body>
-    <h1>Welcome to UniHomes</h1>
+    <h1>UniHomes</h1>
+    <a href="/views">Home</a>
+    <a href="/views/signup">Sign up</a>
+    <a href="/views/login">Log in</a>
+    <a href="/views/about">About</a>
+    <a href="/views/profile">Profile</a>
     
-    <a href="signup.html">Sign up</a>
-    <br>
-    <a href="login.html">Log in</a>
-    
+    {% block page_name %}
     <h2>Search for housing</h2>
     <form>
       <label for="college">Select your college:</label>
@@ -28,7 +30,10 @@
       <br>
       <input type="submit" value="Find Housing">
     </form>
-    
+    {% endblock %}
+
+    {% block content %}
+
     <h2>Results:</h2>
     <ul>
       <li>Housing option 1</li>
@@ -36,6 +41,8 @@
       <li>Housing option 3</li>
       <li>Housing option 4</li>
     </ul>
+    {% endblock %}
+
   </body>
 </html>
 
