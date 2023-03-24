@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UniHomes</title>
+  </head>
+  <body>
+    <h1>Welcome to UniHomes</h1>
+    
+    <a href="signup.html">Sign up</a>
+    <br>
+    <a href="login.html">Log in</a>
+    
+    <h2>Search for housing</h2>
+    <form>
+      <label for="college">Select your college:</label>
+      <select id="college" name="college">
+        <option value="college1">College 1</option>
+        <option value="college2">College 2</option>
+        <option value="college3">College 3</option>
+        <option value="college4">College 4</option>
+      </select>
+      <br>
+      <label for="price">Maximum rent:</label>
+      <input type="number" id="price" name="price" min="0">
+      <br>
+      <label for="distance">Maximum distance from campus:</label>
+      <input type="number" id="distance" name="distance" min="0">
+      <br>
+      <input type="submit" value="Find Housing">
+    </form>
+    
+    <h2>Results:</h2>
+    <ul>
+      <li>Housing option 1</li>
+      <li>Housing option 2</li>
+      <li>Housing option 3</li>
+      <li>Housing option 4</li>
+    </ul>
+  </body>
+</html>
+
